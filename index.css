@@ -1,0 +1,385 @@
+/* FONT FAMILYS IMPORT */
+@font-face {
+  font-family: "Outfit";
+  src: url("assets/fonts/outfit/Outfit-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900; /* Variable font weight range */
+}
+
+@font-face {
+  font-family: "Young Serif";
+  src: url("assets/fonts/young-serif/YoungSerif-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+/* CUSTOM PROPERTIES */
+:root {
+  /* Colors */
+  --clr-white: 0, 0%, 100%;
+
+  --clr-stone-100: 30, 54%, 90%;
+  --clr-stone-150: 30, 18%, 87%;
+  --clr-stone-600: 30, 10%, 34%;
+  --clr-stone-900: 24, 5%, 18%;
+
+  --clr-brown-800: 14, 45%, 36%;
+
+  --clr-rose-800: 332, 51%, 32%;
+  --clr-rose-50: 330, 100%, 98%;
+
+  /* font sizes */
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.75rem;
+  --fs-700: 2.5rem;
+
+  /* font families */
+  --ff-outfit: "Outfit", sans-serif;
+  --ff-young-serif: "Young Serif", serif;
+
+  /* spacing */
+
+  --space-100: 0.5rem;
+  --space-150: 0.75rem;
+  --space-200: 1rem;
+  --space-300: 1.5rem;
+  --space-400: 2rem;
+  --space-500: 2.5rem;
+  --space-600: 3rem;
+  --space-1600: 8rem;
+}
+
+/* RESET STYLES: Remove default margin, padding, and set box-sizing to border-box for all elements */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set up the body with minimum height and line height for better readability */
+body {
+  font-family: var(--ff-outfit);
+  font-size: var(--fs-400);
+  color: hsl(var(--clr-stone-600));
+  background-color: hsl(var(--clr-stone-100));
+  min-height: 100vh;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/**
+ * Sets responsive image behavior:
+ * - Ensures images don't overflow their containers by limiting max-width
+ * - Removes default inline display by making images block elements
+ */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*
+ * Reset inherited font styles for form elements
+ * Ensures form elements use the same font as the rest of the document
+ * Applies to:
+ * - Input fields
+ * - Buttons
+ * - Text areas
+ * - Select dropdowns
+ */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid hsl(var(--clr-stone-150));
+}
+
+ul,
+ol {
+  margin-left: var(--space-300);
+}
+
+/*
+* Custom ordered list styling that:
+* 1. Removes default list markers
+* 2. Creates custom numbering using CSS counters
+* 3. Positions numbers absolutely to the left of list items
+* 4. Applies custom color and weight to numbers
+*/
+
+ol {
+  list-style: none;
+  counter-reset: item;
+}
+
+ol li {
+  counter-increment: item;
+  position: relative;
+}
+
+ol li::before {
+  content: counter(item) ".";
+  color: hsl(var(--clr-brown-800));
+  font-weight: 600;
+  position: absolute;
+  left: -1.5rem;
+}
+
+span {
+  font-weight: 700;
+}
+
+li {
+  padding-left: var(--space-200);
+}
+
+/* Reduce motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* UTILITY CLASSES */
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.container {
+  max-width: 46rem;
+  padding: var(--space-500);
+  margin-inline: auto;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, var(--space-300));
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* COLORS */
+
+.bg-stone-100 {
+  background-color: hsl(var(--clr-stone-100));
+}
+
+.bg-stone-150 {
+  background-color: hsl(var(--clr-stone-150));
+}
+
+.bg-stone-900 {
+  background-color: hsl(var(--clr-stone-900));
+}
+
+.bg-stone-600 {
+  background-color: hsl(var(--clr-stone-600));
+}
+
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.bg-rose-50 {
+  background-color: hsl(var(--clr-rose-50));
+}
+
+.bg-rose-800 {
+  background-color: hsl(var(--clr-rose-800));
+}
+
+.bg-brown-800 {
+  background-color: hsl(var(--clr-brown-800));
+}
+
+.text-stone-100 {
+  color: hsl(var(--clr-stone-100));
+}
+
+.text-stone-150 {
+  color: hsl(var(--clr-stone-150));
+}
+
+.text-stone-600 {
+  color: hsl(var(--clr-stone-600));
+}
+
+.text-stone-900 {
+  color: hsl(var(--clr-stone-900));
+}
+
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+.text-rose-50 {
+  color: hsl(var(--clr-rose-50));
+}
+
+.text-rose-800 {
+  color: hsl(var(--clr-rose-800));
+}
+
+.text-brown-800 {
+  color: hsl(var(--clr-brown-800));
+}
+
+/* typography */
+
+.ff-outfit {
+  font-family: var(--ff-outfit);
+}
+
+.ff-young-serif {
+  font-family: var(--ff-young-serif);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.fs-500 {
+  font-size: var(--fs-500);
+}
+
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.fs-700 {
+  font-size: var(--fs-700);
+}
+
+.fs-500,
+.fs-600,
+.fs-700 {
+  line-height: 1;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.text-preset-1 {
+  font-family: var(--ff-young-serif);
+  font-size: var(--fs-700);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.text-preset-2 {
+  font-family: var(--ff-young-serif);
+  font-size: var(--fs-600);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.text-preset-3 {
+  font-family: var(--ff-outfit);
+  font-weight: 600;
+  font-size: var(--fs-500);
+  line-height: 1;
+}
+
+.text-preset-4 {
+  font-family: var(--ff-outfit);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: var(--fs-400);
+}
+
+.text-preset-5 {
+  font-family: var(--ff-outfit);
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: var(--fs-400);
+}
+
+.card {
+  border-radius: 24px;
+  margin-block: var(--space-1600);
+}
+
+.card img {
+  border-radius: 12px;
+}
+
+.preparation {
+  padding: var(--space-300);
+  border-radius: 12px;
+}
+
+main,
+.card {
+  --flow-space: var(--space-500);
+}
+
+section,
+hr {
+  --flow-space: var(--space-400);
+}
+
+.nutrition p,
+.instructions ol,
+.ingredients ul,
+.introduction,
+.nutrition-labels {
+  --flow-space: var(--space-300);
+}
+.preperation ul {
+  --flow-space: var(--space-200);
+}
+
+li {
+  --flow-space: var(--space-100);
+}
+
+.nutrition-labels {
+  flex-direction: column;
+  --gap: 0.75rem;
+}
+
+.nutrition-labels div {
+  justify-content: space-between;
+  margin: 0 var(--space-400);
+}
+
+.nutrition-labels div span {
+  width: 50%;
+}
+
+.nutrition-labels div span:first-child {
+  font-weight: 400;
+}
