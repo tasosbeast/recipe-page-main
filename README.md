@@ -18,6 +18,7 @@ This is a solution to the [Recipe Page challenge on Frontend Mentor](https://www
 ### Screenshot
 
 ![First Screenshot](./Screenshot%202025-03-06%20215318.png)
+
 ![Second Screenshot](./Screenshot%202025-03-06%20215338.png)
 
 ### Links
