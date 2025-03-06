@@ -12,19 +12,18 @@ This is a solution to the [Recipe Page challenge on Frontend Mentor](https://www
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
 ### Screenshot
 
 ![First Screenshot](./Screenshot%202025-03-06%20215318.png)
+![Second Screenshot](./Screenshot%202025-03-06%20215338.png)
 
 ### Links
 
-- Solution URL: [https://github.com/tasos/recipe-page-main](https://github.com/tasos/recipe-page-main)
-- Live Site URL: [https://tasos.github.io/recipe-page-main](https://tasos.github.io/recipe-page-main)
+- Solution URL: [https://github.com/tasos/recipe-page-main](https://github.com/tasosbeast/recipe-page-main)
+- Live Site URL: [https://recipe-page-tasosbeast.netlify.app/](https://recipe-page-tasosbeast.netlify.app/)
 
 ## My process
 
@@ -33,18 +32,23 @@ This is a solution to the [Recipe Page challenge on Frontend Mentor](https://www
 - HTML5
 - CSS Custom Properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 
 ### What I learned
 
-I reinforced my HTML and CSS skills and learned how to efficiently manage layouts using Flexbox and CSS Grid.
+I learned how to create a reusable flow utility class that helps manage consistent vertical spacing between elements. This pattern is also known as "Stack" layout in some methodologies.
 
-Example snippet:
-
-```html
-<h1>Simple Omelette Recipe</h1>
+```css
+.flow > * + * {
+  margin-top: var(--flow-space, var(--space-300));
+}
 ```
+
+This CSS creates consistent spacing between elements:
+
+- Uses the lobotomized owl selector (> _ + _)
+- Allows custom spacing with --flow-space
+- Falls back to default --space-300 if not specified
 
 ### Continued development
 
@@ -55,12 +59,6 @@ I plan to incorporate JavaScript to add interactivity and further optimize the r
 - [MDN Web Docs](https://developer.mozilla.org) - Quick reference and documentation.
 - [W3Schools](https://www.w3schools.com) - Basic examples and tutorials.
 
-## Author
+```
 
-- Website: [Tasos](https://tasos.dev)
-- Frontend Mentor: [@tasos](https://www.frontendmentor.io/profile/tasos)
-- Twitter: [@tasos](https://www.twitter.com/tasos)
-
-## Acknowledgments
-
-Thanks to the Frontend Mentor community for their invaluable resources and inspiration.
+```
